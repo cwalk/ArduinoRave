@@ -22,13 +22,8 @@ const boolean REDD[] = {ON, OFF, OFF};
 const boolean GREENN[] = {OFF, ON, OFF}; 
 const boolean BLUEE[] = {OFF, OFF, ON}; 
 const boolean YELLOW[] = {ON, ON, OFF}; 
-//const boolean CYAN[] = {OFF, ON, ON}; 
-//const boolean MAGENTA[] = {ON, OFF, ON}; 
-//const boolean WHITEE[] = {ON, ON, ON}; 
-//const boolean BLACK[] = {OFF, OFF, OFF}; 
 
 //An Array that stores the predefined colors (allows us to later randomly display a color)
-//const boolean* COLORS[] = {REDD, GREENN, BLUEE, YELLOW, CYAN, MAGENTA, WHITEE, BLACK};
 const boolean* COLORS[] = {REDD, GREENN, BLUEE, YELLOW};
 
 void setup() 
@@ -50,17 +45,13 @@ void breath(unsigned char color)
     for(int i=0; i<255; i++)
     {
         lcd.setPWM(color, i);
-        //delay(5);
     }
 
     delay(50);
     for(int i=254; i>=0; i--)
     {
         lcd.setPWM(color, i);
-        //delay(5);
     }
-
-    //delay(500);
 }
 
 int count=0;
@@ -73,15 +64,12 @@ void raveRed(){
 
 void raveGreen(){
   setColor(ledDigitalOne, GREENN);
-    //randomColor();
     breath(REG_GREEN);
 }
 
 void raveBlue(){
   setColor(ledDigitalOne, YELLOW);
-    //randomColor();
     breath(REG_BLUE);
-    //randomColor();
 }
 
 void loop() 
@@ -100,8 +88,6 @@ void loop()
         raveGreen();
         lcd.scrollDisplayLeft();
         raveBlue();
-        // wait a bit:
-        //delay(150);
     }
 
     // scroll 29 positions (string length + display length) to the right
@@ -115,8 +101,6 @@ void loop()
         raveGreen();
         lcd.scrollDisplayRight();
         raveBlue();
-        // wait a bit:
-        //delay(150);
     }
 
     // scroll 16 positions (display length + string length) to the left
@@ -130,12 +114,7 @@ void loop()
         raveGreen();
         lcd.scrollDisplayLeft();
         raveBlue();
-        // wait a bit:
-        //delay(150);
     }
-
-    // delay at the end of the full loop:
-    //delay(1000);
     count++;
 }
 
@@ -146,7 +125,6 @@ void turnOff(){
 void randomColor(){
   int rand = random(0, sizeof(COLORS) / 2);  //get a random number within the range of colors
   setColor(ledDigitalOne, COLORS[rand]);  //Set the color of led one to a random color
-  //delay(100);
 }
 
 /* Sets an led to any color
@@ -159,13 +137,8 @@ void setColor(int* led, boolean* color){
  }
 }
 
-/* A version of setColor that allows for using const boolean colors
-*/
+/* A version of setColor that allows for using const boolean colors*/
 void setColor(int* led, const boolean* color){
   boolean tempColor[] = {color[0], color[1], color[2]};
   setColor(led, tempColor);
 }
-
-/*********************************************************************************************************
-  END FILE
-*********************************************************************************************************/
