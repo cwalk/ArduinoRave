@@ -6,7 +6,7 @@ Rave application written at a UCF/Microsoft Hackathon. Lights up LED in sync wit
 
 Download the repository: `git clone https://github.com/cwalk/ArduinoRave`
 
-Navigate into the project directory: `cd ArduinoRave/`
+Navigate into the project directory: `cd ArduinoRave/RAVE/`
 
 Open the Arduino project: `open rave.ino`
 
